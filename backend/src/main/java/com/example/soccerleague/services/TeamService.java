@@ -3,6 +3,7 @@ package com.example.soccerleague.services;
 
 import com.example.soccerleague.models.Team;
 import com.example.soccerleague.repositories.TeamRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +17,14 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-    public List<Team> getAllTeams() {
+/*    public List<Team> getAllTeams() {
         return teamRepository.findAll();
+    }*/
+
+    public List<Team> getTeams(int page, int size) {
+        return teamRepository.findAll(PageRequest.of(page, size)).getContent();
     }
+
 
     public Optional<Team> getTeamById(Long id) {
         return teamRepository.findById(id);

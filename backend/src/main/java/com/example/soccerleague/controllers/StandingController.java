@@ -1,11 +1,13 @@
 package com.example.soccerleague.controllers;
 
+import com.example.soccerleague.dto.StandingDto;
 import com.example.soccerleague.models.Standing;
 import com.example.soccerleague.services.StandingService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/standings")
@@ -18,9 +20,19 @@ public class StandingController {
     }
 
     @GetMapping
-    public List<Standing> getAllStandings() {
-        return standingService.getAllStandings();
+    public List<StandingDto> getAllStandings() {
+        return standingService.getAllStandings().stream()
+                .map(s -> new StandingDto(
+                        s.getTeam() != null ? s.getTeam().getName() : "Unknown Team",
+                        s.getPoints(),
+                        s.getPlayed(),
+                        s.getWon(),
+                        s.getDrawn(),
+                        s.getLost()
+                ))
+                .collect(Collectors.toList());
     }
+
 
     @GetMapping("/{id}")
     public Optional<Standing> getStandingById(@PathVariable Long id) {

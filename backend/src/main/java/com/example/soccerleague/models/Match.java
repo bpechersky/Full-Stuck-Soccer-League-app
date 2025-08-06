@@ -18,10 +18,12 @@ public class Match {
 
     @ManyToOne
     @JoinColumn(name = "home_team_id", referencedColumnName = "id")
+    @JsonIgnoreProperties({"players", "homeMatches", "awayMatches"})
     private Team homeTeam;
 
     @ManyToOne
     @JoinColumn(name = "away_team_id", referencedColumnName = "id")
+    @JsonIgnoreProperties({"players", "homeMatches", "awayMatches"})
     private Team awayTeam;
 
     private int homeScore;

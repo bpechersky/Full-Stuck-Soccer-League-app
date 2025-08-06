@@ -18,12 +18,16 @@ VALUES (2, 3, 4, 1, 0, '2025-08-02');
 INSERT INTO matches (id, home_team_id, away_team_id, home_score, away_score, match_date)
 VALUES (3, 2, 3, 3, 1, '2025-08-03');
 
--- Standings
-INSERT INTO standing (id, team_id, played, won, drawn, lost, points)
-VALUES (1, 1, 2, 1, 1, 0, 4);
-INSERT INTO standing (id, team_id, played, won, drawn, lost, points)
-VALUES (2, 2, 2, 1, 1, 0, 4);
-INSERT INTO standing (id, team_id, played, won, drawn, lost, points)
-VALUES (3, 3, 2, 1, 0, 1, 3);
-INSERT INTO standing (id, team_id, played, won, drawn, lost, points)
-VALUES (4, 4, 2, 0, 0, 2, 0);
+-- Standings with goals
+INSERT INTO standing (id, team_id, played, won, drawn, lost, goals_for, goals_against, points)
+VALUES (1, 1, 2, 1, 1, 0, 5, 2, 4);
+
+INSERT INTO standing (id, team_id, played, won, drawn, lost, goals_for, goals_against, points)
+VALUES (2, 2, 2, 1, 1, 0, 4, 3, 4);
+
+INSERT INTO standing (id, team_id, played, won, drawn, lost, goals_for, goals_against, points)
+VALUES (3, 3, 2, 1, 0, 1, 3, 3, 3);
+
+INSERT INTO standing (id, team_id, played, won, drawn, lost, goals_for, goals_against, points)
+VALUES (4, 4, 2, 0, 0, 2, 1, 5, 0);
+

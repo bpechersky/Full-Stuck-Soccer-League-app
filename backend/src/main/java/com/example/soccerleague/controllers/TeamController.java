@@ -2,6 +2,7 @@ package com.example.soccerleague.controllers;
 
 import com.example.soccerleague.models.Team;
 import com.example.soccerleague.services.TeamService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,10 +18,20 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    @GetMapping
+/*    @GetMapping
     public List<Team> getAllTeams() {
         return teamService.getAllTeams();
+    }*/
+
+    @GetMapping
+    public List<Team> getTeams(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        return teamService.getTeams(page, size);
     }
+
+
 
     @GetMapping("/{id}")
     public Optional<Team> getTeamById(@PathVariable Long id) {

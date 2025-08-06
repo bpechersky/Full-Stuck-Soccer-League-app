@@ -40,6 +40,8 @@ CREATE TABLE standing (
     won INT,
     drawn INT,
     lost INT,
+    goals_for INT,
+    goals_against INT,
     points INT,
     CONSTRAINT fk_standing_team FOREIGN KEY (team_id) REFERENCES team(id)
 );

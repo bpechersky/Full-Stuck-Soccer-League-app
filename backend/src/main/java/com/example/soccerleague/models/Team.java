@@ -2,6 +2,7 @@
 package com.example.soccerleague.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,11 +13,11 @@ import java.util.List;
 @Data
 public class Team {
 
-    @OneToMany(mappedBy = "homeTeam")
+    @OneToMany(mappedBy = "homeTeam",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Match> homeMatches;
 
-    @OneToMany(mappedBy = "awayTeam")
+    @OneToMany(mappedBy = "awayTeam",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Match> awayMatches;
 
@@ -26,7 +27,8 @@ public class Team {
     private String name;
     private String city;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Player> players;
 
     public Long getId() { return id; }
