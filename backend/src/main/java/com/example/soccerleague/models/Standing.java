@@ -1,4 +1,3 @@
-
 package com.example.soccerleague.models;
 
 import jakarta.persistence.*;
@@ -12,41 +11,33 @@ public class Standing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "team_id")
     private Team team;
 
+    @Column(name = "played")
     private int matchesPlayed;
+
+    @Column(name = "won")
     private int wins;
+
+    @Column(name = "drawn")
     private int draws;
+
+    @Column(name = "lost")
     private int losses;
-    private int goalsFor;
-    private int goalsAgainst;
+
+    @Column(name = "points")
     private int points;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    // Optional if you're not storing these:
+    @Column(name = "goals_for", nullable = true)
+    private Integer goalsFor;
 
-    public Team getTeam() { return team; }
-    public void setTeam(Team team) { this.team = team; }
+    @Column(name = "goals_against", nullable = true)
+    private Integer goalsAgainst;
 
-    public int getMatchesPlayed() { return matchesPlayed; }
-    public void setMatchesPlayed(int matchesPlayed) { this.matchesPlayed = matchesPlayed; }
-
-    public int getWins() { return wins; }
-    public void setWins(int wins) { this.wins = wins; }
-
-    public int getDraws() { return draws; }
-    public void setDraws(int draws) { this.draws = draws; }
-
-    public int getLosses() { return losses; }
-    public void setLosses(int losses) { this.losses = losses; }
-
-    public int getGoalsFor() { return goalsFor; }
-    public void setGoalsFor(int goalsFor) { this.goalsFor = goalsFor; }
-
-    public int getGoalsAgainst() { return goalsAgainst; }
-    public void setGoalsAgainst(int goalsAgainst) { this.goalsAgainst = goalsAgainst; }
-
-    public int getPoints() { return points; }
-    public void setPoints(int points) { this.points = points; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
