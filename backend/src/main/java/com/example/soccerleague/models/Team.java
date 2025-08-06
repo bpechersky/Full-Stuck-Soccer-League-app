@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,9 +28,9 @@ public class Team {
     private String name;
     private String city;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     @JsonManagedReference
-    private List<Player> players;
+    private List<Player> players = new ArrayList<>();
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

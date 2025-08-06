@@ -40,8 +40,10 @@ public class TeamController {
 
     @PostMapping
     public Team createTeam(@RequestBody Team team) {
-        return teamService.saveTeam(team);
+        return teamService.createTeam(team);
     }
+
+
 
     @PutMapping("/{id}")
     public Team updateTeam(@PathVariable Long id, @RequestBody Team updatedTeam) {
