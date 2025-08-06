@@ -39,7 +39,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies and build
-        working-directory: frontend
+        working-directory: soccer-league-app-full_with_poms/frontend
         run: |
           npm ci
           npm run build
