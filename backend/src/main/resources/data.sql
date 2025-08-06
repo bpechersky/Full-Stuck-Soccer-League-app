@@ -11,11 +11,11 @@ INSERT INTO player (id, name, position, team_id) VALUES (3, 'Mohamed Salah', 'Wi
 INSERT INTO player (id, name, position, team_id) VALUES (4, 'Raheem Sterling', 'Winger', 4);
 
 -- Matches
-INSERT INTO "match" (id, home_team_id, away_team_id, home_score, away_score, match_date)
+INSERT INTO matches (id, home_team_id, away_team_id, home_score, away_score, match_date)
 VALUES (1, 1, 2, 2, 2, '2025-08-01');
-INSERT INTO "match" (id, home_team_id, away_team_id, home_score, away_score, match_date)
+INSERT INTO matches (id, home_team_id, away_team_id, home_score, away_score, match_date)
 VALUES (2, 3, 4, 1, 0, '2025-08-02');
-INSERT INTO "match" (id, home_team_id, away_team_id, home_score, away_score, match_date)
+INSERT INTO matches (id, home_team_id, away_team_id, home_score, away_score, match_date)
 VALUES (3, 2, 3, 3, 1, '2025-08-03');
 
 -- Standings

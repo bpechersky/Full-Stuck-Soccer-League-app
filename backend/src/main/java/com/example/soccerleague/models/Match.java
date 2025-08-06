@@ -1,27 +1,32 @@
 
 package com.example.soccerleague.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "match")
+@Table(name = "matches")
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "home_team_id", referencedColumnName = "id")
     private Team homeTeam;
 
     @ManyToOne
+    @JoinColumn(name = "away_team_id", referencedColumnName = "id")
     private Team awayTeam;
 
     private int homeScore;
     private int awayScore;
+
     private LocalDate matchDate;
 
     public Long getId() { return id; }

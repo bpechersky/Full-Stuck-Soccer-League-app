@@ -21,7 +21,7 @@ CREATE TABLE player (
 );
 
 -- Match table
-CREATE TABLE "match"(
+CREATE TABLE matches(
     id BIGINT PRIMARY KEY,
     home_team_id BIGINT,
     away_team_id BIGINT,

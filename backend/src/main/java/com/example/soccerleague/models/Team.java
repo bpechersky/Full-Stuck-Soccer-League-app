@@ -1,6 +1,7 @@
 
 package com.example.soccerleague.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,6 +11,15 @@ import java.util.List;
 @Table(name = "team")
 @Data
 public class Team {
+
+    @OneToMany(mappedBy = "homeTeam")
+    @JsonIgnore
+    private List<Match> homeMatches;
+
+    @OneToMany(mappedBy = "awayTeam")
+    @JsonIgnore
+    private List<Match> awayMatches;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
