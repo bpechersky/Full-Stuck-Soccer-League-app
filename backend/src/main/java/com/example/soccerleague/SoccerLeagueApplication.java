@@ -12,5 +12,4 @@ public class SoccerLeagueApplication {
     public static void main(String[] args) {
         SpringApplication.run(SoccerLeagueApplication.class, args);
     }
-
 }
