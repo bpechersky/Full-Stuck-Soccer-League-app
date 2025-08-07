@@ -3,6 +3,9 @@ INSERT INTO team (id, name, city) VALUES (1, 'Arsenal', 'London');
 INSERT INTO team (id, name, city) VALUES (2, 'Manchester City', 'Manchester');
 INSERT INTO team (id, name, city) VALUES (3, 'Liverpool', 'Liverpool');
 INSERT INTO team (id, name, city) VALUES (4, 'Chelsea', 'London');
+-- After inserting 4 teams
+ALTER TABLE team ALTER COLUMN id RESTART WITH 5;
+
 
 -- Players
 INSERT INTO player (id, name, position, team_id) VALUES (1, 'Bukayo Saka', 'Winger', 1);
@@ -31,3 +34,7 @@ VALUES (3, 3, 2, 1, 0, 1, 3, 3, 3);
 INSERT INTO standing (id, team_id, played, won, drawn, lost, goals_for, goals_against, points)
 VALUES (4, 4, 2, 0, 0, 2, 1, 5, 0);
 
+-- Ensure auto-generated IDs start after manually inserted values
+ALTER TABLE player ALTER COLUMN id RESTART WITH 5;
+ALTER TABLE matches ALTER COLUMN id RESTART WITH 4;
+ALTER TABLE standing ALTER COLUMN id RESTART WITH 5;
