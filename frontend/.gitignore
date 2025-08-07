@@ -1,20 +1,22 @@
-# Node.js
+# Node / React
 node_modules/
-dist/
 build/
-.env
+dist/
+coverage/
+.cache/
+.parcel-cache/
+.next/
+out/
+npm-debug.log*
+yarn-error.log*
+.eslintcache
 
-# IntelliJ
+# Env
+.env*
+!.env.example
+
+# Editors/OS
 .idea/
-*.iml
-
-# VS Code
 .vscode/
-
-# Logs
-logs
-*.log
-
-# OS
 .DS_Store
 Thumbs.db
