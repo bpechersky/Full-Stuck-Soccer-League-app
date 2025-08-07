@@ -1,0 +1,39 @@
+##############################
+# Java / Maven (Backend)
+##############################
+target/
+*.log
+*.iml
+.idea/
+*.class
+*.jar
+*.war
+*.ear
+
+##############################
+# Node / React (Frontend)
+##############################
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/coverage/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/out/
+frontend/npm-debug.log*
+frontend/yarn-error.log*
+frontend/.eslintcache
+
+##############################
+# Environment Files
+##############################
+**/.env*
+!.env.example
+
+##############################
+# Editors / OS
+##############################
+.vscode/
+.DS_Store
+Thumbs.db
