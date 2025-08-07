@@ -3,6 +3,7 @@ import { createTeam } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const AddTeamPage = () => {
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
